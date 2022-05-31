@@ -1,4 +1,4 @@
-package com.co.runt.runt.entity;
+package com.co.runt.school.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -22,12 +23,17 @@ public class School {
     @Column(name = "nombre")
     private String name;
 
-    @OneToMany(targetEntity = Course.class)
+    @OneToMany(targetEntity = Course.class, mappedBy = "school")   
     private List<Course> courses;
 
     public School() {
     }
 
+    public School(String name, List<Course> courses) {
+        this.name = name;
+        this.courses=courses;
+    }
+    
     public String getName() {
         return name;
     }

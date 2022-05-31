@@ -1,4 +1,4 @@
-package com.co.runt.runt.entity;
+package com.co.runt.school.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -18,23 +20,30 @@ public class Course {
     @Id
     @Column(name = "idCurso")
     @GeneratedValue(strategy = GenerationType.AUTO)
-
     private int idCourse;
+    
     @Column(name = "grado")
-
     private int grade;
+    
     @Column(name = "salon")
     private String classRoon;
 
     @ManyToOne
+    @JoinColumn(name = "idEscuela")
     private School school;
 
-    @OneToMany(targetEntity = Subjects.class)
+    @OneToMany(mappedBy="course")   
     private List<Subjects> lisSubjects;
 
     public Course() {
     }
 
+    public Course(int grade, String classRoon, List<Subjects> lisSubjects) {
+        this.grade = grade;
+        this.classRoon = classRoon;
+        this.lisSubjects=lisSubjects;
+    }   
+    
     public int getIdCourse() {
         return idCourse;
     }

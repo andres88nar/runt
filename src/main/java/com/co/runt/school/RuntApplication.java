@@ -1,4 +1,4 @@
-package com.co.runt.runt;
+package com.co.runt.school;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.co.runt.runt.entity;
+package com.co.runt.school.entity;
 
 import java.util.List;
 import java.util.Objects;
@@ -28,6 +28,10 @@ public class Student {
     public Student() {
     }
 
+    public Student(String name) {
+        this.name = name;
+    }
+    
     public int getIsStudent() {
         return isStudent;
     }

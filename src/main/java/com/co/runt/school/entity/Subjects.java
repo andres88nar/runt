@@ -1,20 +1,22 @@
 
-package com.co.runt.runt.entity;
+package com.co.runt.school.entity;
 
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="Asignatura")
-class Subjects {
+public class Subjects {
     
    @Id
    @Column(name="idAsignatura")
@@ -25,17 +27,26 @@ class Subjects {
    private String name;
    
    @ManyToOne
+   @JoinColumn(name = "idCurso")
    private Course course;
 
-   @ManyToOne
+   @ManyToOne 
+   @JoinColumn(name = "idProfesor")
    private Teacher teacher;
    
    @ManyToMany(targetEntity = Student.class)
    private List<Student> listStudents;
    
-   public Subjects() {
-   }
+    public Subjects() {
+    }
 
+    public Subjects(String name, Teacher teacher, List<Student> listStudents) {
+        this.name = name;
+        this.teacher=teacher;
+        this.listStudents=listStudents;
+    }
+
+    
     public int getIdSubjects() {
         return idSubjects;
     }
