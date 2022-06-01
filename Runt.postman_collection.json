@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "c91908fd-885e-4478-a941-ff05d2e44970",
+		"name": "Runt",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AllTeacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/runt-rest/allTeacher",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"runt-rest",
+						"allTeacher"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

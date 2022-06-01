@@ -24,5 +24,9 @@ public interface ServicRunt {
     public List<Student> AllStudents();
     
     public List<Teacher> allTeacher();
+
+    public List<Course> allCourses();
+
+    public List<Subjects> allSubjects();
     
 }

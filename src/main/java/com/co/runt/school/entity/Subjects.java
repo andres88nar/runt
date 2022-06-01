@@ -5,9 +5,9 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,15 +32,15 @@ public class Subjects implements Serializable{
    
    @ManyToOne
    @JoinColumn(name = "idCurso")
+   @JsonBackReference
    private Course course;
 
-   //@ManyToOne (cascade = CascadeType.ALL)
    @ManyToOne 
    @JoinColumn(name = "idProfesor")
    @JsonBackReference
    private Teacher teacher;
    
-   @ManyToMany(targetEntity = Student.class)    
+   @ManyToMany(targetEntity = Student.class, fetch = FetchType.EAGER)    
    private List<Student> listStudents;
    
     public Subjects() {

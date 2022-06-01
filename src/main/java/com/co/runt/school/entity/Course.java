@@ -1,5 +1,6 @@
 package com.co.runt.school.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -9,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -31,11 +31,16 @@ public class Course implements Serializable{
     @Column(name = "salon")
     private String classRoon;
 
+//    @JoinColumn(name = "School_idEscuela", referencedColumnName= "idEscuela", insertable = false, updatable = false )
+//    @ManyToOne (cascade = CascadeType.ALL)
+//    private School school;
+    
     @ManyToOne
     @JoinColumn(name = "idEscuela")
     private School school;
 
-    @OneToMany(mappedBy="course")   
+    @OneToMany(mappedBy="course")
+    @JsonManagedReference
     private List<Subjects> lisSubjects;
 
     public Course() {
@@ -46,6 +51,11 @@ public class Course implements Serializable{
         this.classRoon = classRoon;
         this.lisSubjects=lisSubjects;
     }   
+    
+    public Course(int grade, String classRoon) {
+        this.grade = grade;
+        this.classRoon = classRoon;       
+    } 
     
     public int getIdCourse() {
         return idCourse;

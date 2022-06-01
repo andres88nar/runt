@@ -1,14 +1,18 @@
 package com.co.runt.school.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,9 +30,13 @@ public class School implements Serializable{
     @Column(name = "nombre")
     private String name;
 
+//    @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "school", fetch = FetchType.EAGER)   
+//    private List<Course> courses;
+    
     @OneToMany(targetEntity = Course.class, mappedBy = "school")   
     private List<Course> courses;
-
+    
     public School() {
     }
 
@@ -36,6 +44,14 @@ public class School implements Serializable{
         this.name = name;
         this.courses=courses;
     }
+
+    public int getIdSchool() {
+        return idSchool;
+    }
+
+    public void setIdSchool(int idSchool) {
+        this.idSchool = idSchool;
+    }    
     
     public String getName() {
         return name;

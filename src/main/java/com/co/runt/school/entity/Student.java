@@ -3,8 +3,10 @@ package com.co.runt.school.entity;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +27,7 @@ public class Student implements Serializable{
     @Column(name = "Nombre")
     private String name;
 
-    @ManyToMany(targetEntity = Subjects.class)
+    @ManyToMany(targetEntity = Subjects.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Subjects> lisSubjects;
 
     public Student() {

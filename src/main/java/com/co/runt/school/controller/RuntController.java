@@ -2,6 +2,9 @@
 package com.co.runt.school.controller;
 
 
+import com.co.runt.school.entity.Course;
+import com.co.runt.school.entity.Student;
+import com.co.runt.school.entity.Subjects;
 import com.co.runt.school.entity.Teacher;
 import com.co.runt.school.services.ServicRunt;
 import java.util.List;
@@ -24,8 +27,21 @@ public class RuntController {
       return servicRunt.allTeacher();
     }  
     
+     
+    @PostMapping(value = "allStuden", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List <Student> allStudent(){        
+      return servicRunt.AllStudents();
+    }  
     
+    @PostMapping(value = "allCourse", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List <Course> allCourse(){          
+      return servicRunt.allCourses();
+    }   
     
+    @PostMapping(value = "allSubjects", produces = MediaType.APPLICATION_JSON_VALUE)
+    public List <Subjects> allSubjects(){          
+      return servicRunt.allSubjects();
+    } 
     
     
 }

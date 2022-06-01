@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.co.runt.school.controller;
 
 import com.co.runt.school.entity.Course;
@@ -27,7 +23,7 @@ public class Init {
 
     @PostConstruct
     private void starting() {
-        System.out.println("ALIMENTANDO DB");
+        System.out.println("ALIMENTANDO DB H2");
         
         Teacher nemesis = new Teacher("Némesis");
         Teacher priapo = new Teacher("Príapo");
@@ -55,8 +51,7 @@ public class Init {
         Subjects preIcfes = new Subjects("Pre Icfes", nemesis, new ArrayList<Student>(Arrays.asList(hefesto, hera, hermes, hades, poseidon, zeus)));
         Subjects inglesBasico = new Subjects("Ingels Basico", iris, new ArrayList<Student>(Arrays.asList(afrodita, apolo, ares)));
         Subjects inglesAvanzado = new Subjects("Ingles Avanzado", iris, new ArrayList<Student>(Arrays.asList(artemisa, atenea, dionisio)));
-
-          
+        
         Course diezA = new Course(10,"A",new ArrayList <Subjects>(Arrays.asList(matematicas, español, inglesBasico)));
         Course diezB = new Course(10,"B",new ArrayList <Subjects>(Arrays.asList(matematicas, español, inglesAvanzado)));
         Course onceA = new Course(11,"A",new ArrayList <Subjects>(Arrays.asList(matematicas, preIcfes))); 
@@ -70,7 +65,7 @@ public class Init {
         saveCourse(new ArrayList <Course> (Arrays.asList(diezA, diezB, onceA, onceB)));
         servicRunt.saveSchool(Olimpo); 
         
-        System.out.println(new Gson().toJson(Olimpo)); 
+        System.out.println(new Gson().toJson(Olimpo));             
 
     }
 
