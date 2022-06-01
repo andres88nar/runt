@@ -54,19 +54,11 @@ public class ServicRuntImp implements ServicRunt{
     @Override
     public List<Student> AllStudents(){
       return (List<Student>) studentReposotory.findAll();
-    }
-    
+    }    
+   
     @Override
-    @Transactional
-    public void searchTeacher(Teacher teather){
-     
-//        
-//        Teacher d=    teacherRepository.findById(teather.getIdTechar()).orElse(null);
-//      
-//        System.out.println("desde acaaaaa "+teather);
-//        
-//        
-//        System.out.println("desde acaaaaa "+d);
+    public List<Teacher> allTeacher() {
+        return (List<Teacher>) teacherRepository.findAll();
     }
     
     

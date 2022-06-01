@@ -1,0 +1,51 @@
+ 
+<html xmlls:th="http://www.thymeleaf.org">
+    <head>
+        <title >Colegio del Olimpo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>       
+        <h1>Colegio del Olimpo</h1>          
+        <div>  
+            <label>Seleccione un profesor:   </label>
+          
+                <select title="Favor Seleccione">
+                    <option value="" disabled="disabled" selected="selected" >Seleccionar</option>
+                    <option th:each="teacher : ${lisTeacher}"
+                            th:text="${teacher.name}"
+                            th:value="${teacher.name}">
+                </select>
+
+          </div>                 
+        <p></p>
+        <div th:if="${lisTeacher!=null and !lisTeacher.empty}">
+            <table border="1">
+                <tr>
+                    <th>Nombre</th>                   
+                    <th>Unidad</th>
+                    <th>Cantidad min</th>
+                    <th>Cantidad max</th>
+                    <th>Valor Venta</th> 
+                    <th>Inventario</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>                      
+                </tr>  
+<!--                <tr th:each="product : ${listProducts}">
+                    <td th:text="${product.nombre}"></td>
+                    <td th:text="${product.unidad}"></td>
+                    <td th:text="${product.min}"></td>
+                    <td th:text="${product.max}"></td>
+                    <td th:text="${product.valventa}"></td>     
+                    <td> <a th:href="@{/todouno/HulkStore/stockProduct/} + ${product.idproducto}"  th:text="Inventariar"></a></td>
+                    <td> <a th:href="@{/todouno/HulkStore/editProduct/} + ${product.idproducto}"  th:text="Editar"></a></td>
+                    <td> <a th:href="@{/todouno/HulkStore/deleteProduct/} + ${product.idproducto}"  th:text="Eliminar"></a></td>      -->
+                </tr>                
+            </table>           
+        </div>  
+
+            <br>
+            <br><br>
+            <a th:href="@{/todouno/HulkStore/}"><button>Volver</button></a>              
+    </body>
+</html>

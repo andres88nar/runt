@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public interface ServicRunt {
-
+    
     public void saveSchool(School school);
 
     public void saveCouse(Course course);
@@ -23,6 +23,6 @@ public interface ServicRunt {
  
     public List<Student> AllStudents();
     
-    public void searchTeacher(Teacher teather);    
+    public List<Teacher> allTeacher();
     
 }

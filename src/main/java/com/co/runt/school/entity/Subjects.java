@@ -1,6 +1,8 @@
 
 package com.co.runt.school.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.CascadeType;
@@ -16,7 +18,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Asignatura")
-public class Subjects {
+public class Subjects implements Serializable{
+    
+   private static final long  serialVersionUID = 1L; 
     
    @Id
    @Column(name="idAsignatura")
@@ -30,11 +34,13 @@ public class Subjects {
    @JoinColumn(name = "idCurso")
    private Course course;
 
+   //@ManyToOne (cascade = CascadeType.ALL)
    @ManyToOne 
    @JoinColumn(name = "idProfesor")
+   @JsonBackReference
    private Teacher teacher;
    
-   @ManyToMany(targetEntity = Student.class)
+   @ManyToMany(targetEntity = Student.class)    
    private List<Student> listStudents;
    
     public Subjects() {

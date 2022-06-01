@@ -1,6 +1,8 @@
 
 package com.co.runt.school.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,8 +14,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Profesor")
-public class Teacher {
-        
+public class Teacher implements Serializable{
+      
+   private static final long  serialVersionUID = 1L;  
+    
    @Id
    @Column(name="idProfesor")
    @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,6 +27,7 @@ public class Teacher {
    private String name;
    
    @OneToMany(mappedBy = "teacher")
+   @JsonManagedReference   
    private List<Subjects> lisSubjects;
 
     public Teacher() {
@@ -31,7 +36,6 @@ public class Teacher {
     public Teacher(String name) {
         this.name = name;
     }
-
     
     public int getIdTechar() {
         return idTeacher;
