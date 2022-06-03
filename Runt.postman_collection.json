@@ -24,6 +24,66 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "AllStudents",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/runt-rest/allStuden",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"runt-rest",
+						"allStuden"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllCourses",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/runt-rest/allCourse",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"runt-rest",
+						"allCourse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AllSubjects",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/runt-rest/allSubjects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"runt-rest",
+						"allSubjects"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

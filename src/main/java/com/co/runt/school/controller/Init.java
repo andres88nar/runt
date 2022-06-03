@@ -65,7 +65,16 @@ public class Init {
         saveCourse(new ArrayList <Course> (Arrays.asList(diezA, diezB, onceA, onceB)));
         servicRunt.saveSchool(Olimpo); 
         
-        System.out.println(new Gson().toJson(Olimpo));             
+        System.out.println(new Gson().toJson(Olimpo));  
+
+
+          
+
+
+
+
+
+
 
     }
 

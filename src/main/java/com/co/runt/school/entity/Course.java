@@ -30,15 +30,14 @@ public class Course implements Serializable{
     
     @Column(name = "salon")
     private String classRoon;
-
-//    @JoinColumn(name = "School_idEscuela", referencedColumnName= "idEscuela", insertable = false, updatable = false )
-//    @ManyToOne (cascade = CascadeType.ALL)
-//    private School school;
+  
     
+    //funciona
     @ManyToOne
     @JoinColumn(name = "idEscuela")
     private School school;
 
+    
     @OneToMany(mappedBy="course")
     @JsonManagedReference
     private List<Subjects> lisSubjects;
